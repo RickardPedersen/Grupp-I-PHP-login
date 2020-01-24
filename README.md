@@ -2,7 +2,7 @@
 Gruppuppgift i kursen Webbutveckling med PHP
 
 Trello:
-    https://trello.com/b/FmMsGwJG/grupp-i-php-login
+    https://trello.com/b/FmMsGwJG/grupp-i-php-loginrickard-elin-alex
 
 # Krav
 - [ ] All funktionalitet ska hanteras i en eller flera klasser.
