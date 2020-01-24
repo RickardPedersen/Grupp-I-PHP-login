@@ -1,0 +1,6 @@
+{
+    "name": "rickardpedersen/grupp-i-php-login",
+    "require": {
+        "vlucas/phpdotenv": "^4.1"
+    }
+}
