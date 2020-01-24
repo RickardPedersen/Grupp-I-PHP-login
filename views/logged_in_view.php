@@ -1,3 +1,9 @@
+<?php
+/*
+session_start();
+$_SESSION["color"]= "blue";
+*/
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
@@ -12,8 +18,10 @@
     <body>
         <div class="container center-content">
             <h1>You are now logged in!</h1>
-            <h1>Session variable: </h1>
-            <button class="btn btn-success" type="button" name="button">Logout</button>
+            <h1>Session variable:
+                    <!--php echo $_SESSION["color"];-->
+             </h1>
+            <button class="btn btn-lg btn-success" type="button" name="button">Logout</button>
         </div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

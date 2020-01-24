@@ -1,11 +1,13 @@
 body {
   display: flex;
   justify-content: center;
+  background-color: beige;
 }
 
 .center-content {
   text-align: center;
   align-items: center;
+  margin-top: 15%;
 }
 
 /*# sourceMappingURL=styles.css.map */
