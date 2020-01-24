@@ -16,3 +16,8 @@ Trello:
 - [ ] Koden ska följa PSR-2.
 - [ ] Koden ska ha enhetstester.
 - [ ] Alla i gruppen ska kunna redovisa varje del av koden.
+
+# Developers
+- [Rickard Pedersen](https://github.com/RickardPedersen)
+- [Alexander Wilson](https://github.com/KaptenAlex)
+- [Elin Södermark](https://github.com/esodermark)
