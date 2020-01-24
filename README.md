@@ -5,6 +5,8 @@ Trello:
     https://trello.com/b/FmMsGwJG/grupp-i-php-loginrickard-elin-alex
 
 # Krav
+Ni ska skriva en webbapplikation som låter en användare registrera sig och logga in.
+
 - [ ] All funktionalitet ska hanteras i en eller flera klasser.
 - [ ] Varje klass ska ha sin egen fil och filerna ska placeras i en lämplig filstruktur.
 - [ ] Metoder ska vara avgränsade och hantera en avgränsad uppgift. Jag vill alltså inte se en klass med en metod som gör allt.
