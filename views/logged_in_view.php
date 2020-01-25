@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 include '../classes/logged_in_view_class.php';
 $loggedIn = new classes\LoggedInClass("Alex");
 ?>
