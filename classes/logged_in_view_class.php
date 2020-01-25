@@ -11,13 +11,13 @@ $db = new classes\MySQL();
 * skapar pdo connection
 $pdo = $db->connect();
 */
-//namespace classes;
+namespace classes;
 
 class LoggedInClass
 {
     private $session;
 
-    public function __constructor($session)
+    public function __construct($session = "")
     {
         session_start();
         if (!(isset($session)) || $session == "") {
@@ -31,6 +31,6 @@ class LoggedInClass
     }
     public function printSession()
     {
-        echo $this->session;
+        return $this->session;
     }
 }

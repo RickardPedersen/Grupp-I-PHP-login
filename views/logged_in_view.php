@@ -1,13 +1,7 @@
 <?php
-session_start();
+
 include '../classes/logged_in_view_class.php';
-$loggedIn = new LoggedInClass("Alex");
-/*Just a test, start the script once
-  and then comment out the row below
-  to see the session be used when
-  reloading the page.
-  */
-//$_SESSION["user"] = "Alexander";
+$loggedIn = new classes\LoggedInClass("Alex");
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -25,8 +19,7 @@ $loggedIn = new LoggedInClass("Alex");
             <h1>You are now logged in!</h1>
             <h1>Session variable:
                 <?php
-                    $loggedIn->printSession();
-                    //echo $_SESSION["user"];
+                    echo $loggedIn->printSession();
                 ?>
              </h1>
              <form action="logged_in_view.php" method="get">
