@@ -1,11 +1,13 @@
 <?php
 session_start();
+include '../classes/logged_in_view_class.php';
+$loggedIn = new LoggedInClass("Alex");
 /*Just a test, start the script once
   and then comment out the row below
   to see the session be used when
   reloading the page.
   */
-$_SESSION["user"] = "Alexander";
+//$_SESSION["user"] = "Alexander";
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -23,10 +25,13 @@ $_SESSION["user"] = "Alexander";
             <h1>You are now logged in!</h1>
             <h1>Session variable:
                 <?php
-                    echo $_SESSION["user"];
+                    $loggedIn->printSession();
+                    //echo $_SESSION["user"];
                 ?>
              </h1>
-            <button class="btn btn-lg btn-success" type="button" name="button">Logout</button>
+             <form action="logged_in_view.php" method="get">
+                 <button class="btn btn-lg btn-success" type="submit" name="button">Logout</button>
+             </form>
         </div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
