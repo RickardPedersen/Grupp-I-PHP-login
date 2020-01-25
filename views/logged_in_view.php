@@ -1,8 +1,11 @@
 <?php
-/*
 session_start();
-$_SESSION["color"]= "blue";
-*/
+/*Just a test, start the script once
+  and then comment out the row below
+  to see the session be used when
+  reloading the page.
+  */
+$_SESSION["user"] = "Alexander";
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -19,7 +22,9 @@ $_SESSION["color"]= "blue";
         <div class="container center-content">
             <h1>You are now logged in!</h1>
             <h1>Session variable:
-                    <!--php echo $_SESSION["color"];-->
+                <?php
+                    echo $_SESSION["user"];
+                ?>
              </h1>
             <button class="btn btn-lg btn-success" type="button" name="button">Logout</button>
         </div>
