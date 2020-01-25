@@ -2,7 +2,7 @@
 
 session_start();
 include  __DIR__ . '/../classes/logged_in_view_class.php';
-$loggedIn = new classes\LoggedInClass("Alex");
+$loggedIn = new classes\LoggedInClass("Alex", "@testing");
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -20,7 +20,7 @@ $loggedIn = new classes\LoggedInClass("Alex");
             <h1>You are now logged in!</h1>
             <h1>Session variable:
                 <?php
-                    echo $loggedIn->printSession();
+                    echo $loggedIn->sendSessionData();
                 ?>
              </h1>
              <form action="logged_in_view.php" method="get">

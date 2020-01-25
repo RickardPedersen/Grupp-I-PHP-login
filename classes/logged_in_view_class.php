@@ -1,36 +1,28 @@
 <?php
 
-/*
-* laddar in alla våra klasser
-require __DIR__ . '/../vendor/autoload.php';
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR);
-* gör så vi kan använda .env variabler med getenv('variabelnamn')
-$dotenv->load();
-* skapar databasobjekt
-$db = new classes\MySQL();
-* skapar pdo connection
-$pdo = $db->connect();
-*/
 namespace classes;
 
 class LoggedInClass
 {
     private $session;
 
-    public function __construct($session = null)
+    public function __construct($username = null, $email = null)
     {
-        if (!(isset($session))) {
-            $session = $_SESSION['user'];
+        if (!(isset($username)) || !(isset($email))) {
             $_SESSION['user'] =
-            "Something went wrong with setting the session";
-            $this->session = $session;
+            array("error" => "Something went wrong with setting the session");
+            $this->session = $_SESSION['user'];
         } else {
-            $_SESSION['user'] = $session;
-            $this->session = $session;
+            $_SESSION['user'] = array("username" => $username, "email" => $email);
+            $this->session = $_SESSION['user'];
         }
     }
-    public function printSession()
+    public function sendSessionData()
     {
-        return $this->session;
+        if (array_key_exists("error", $this->session)) {
+            return $this->session["error"];
+        } else {
+            return implode(", ", $this->session);
+        }
     }
 }
