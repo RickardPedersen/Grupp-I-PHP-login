@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
     if (array_filter($error_msg)) {
         // error messages are displayed
     } else {
-        // submit to db and get redirected to login
+        // submit to db + get redirected to login
     }
 };
 ?>
