@@ -1,46 +1,66 @@
 <?php include 'head.php' ?>
 
 <?php
+// function debug_to_console($data) 
+// {
+//     $output = $data;
+//     if (is_array($output))
+//         $output = implode(',', $output);
 
-function debug_to_console($data) 
-{
-    $output = $data;
-    if (is_array($output))
-        $output = implode(',', $output);
+//     echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+// }
 
-    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
-}
+$error_msg = array('email'=>'', 'username'=>'', 'password'=>'');
 
 if (isset($_POST['submit'])) {
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
-    $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
-    $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+    if (empty($_POST['email'])) {
+        $error_msg['email'] = 'Please enter an email';
+    } else {
+        $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
+    }
 
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    if (empty($_POST['username'])) {
+        $error_msg['username'] = 'Please enter a username';
+    } else {
+        $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+    }
 
-    debug_to_console($hashedPassword);
+    if (empty($_POST['password'])) {
+        $error_msg['password'] = 'Please enter a password';
+    } else {
+        $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    }
+
+
+    if (array_filter($error_msg)) {
+        // error messages are displayed
+    } else {
+        // submit to db and get redirected to login
+    }
 };
-
 ?>
-    
-    <div class="registerContainer">
-        <h1>Register</h1>
-        <form action="register_view.php" method="POST">
-            <div>
-                <input type="email" name="email" placeholder="Email">
-            </div>
-            <div>
-                <input type="text" name="username" placeholder="&#xf007 Username">
-            </div>
-            <div>
-                <input type="password" name="password" placeholder="&#xf023 Password">
-            </div>
-            <div>
-                <input type="submit" name="submit" class="btn" value="Register">
-            </div>
-        </form>
-            
-    </div>
+
+<div class="registerContainer">
+    <h1>Register</h1>
+    <form action="register_view.php" method="POST">
+        <div>
+            <p class="error"><?php echo $error_msg['email']; ?></p>
+            <input type="email" name="email" placeholder="Email">
+        </div>
+        <div>
+            <p class="error"><?php echo $error_msg['username']; ?></p>
+            <input type="text" name="username" placeholder="&#xf007 Username">
+        </div>
+        <div>
+            <p class="error"><?php echo $error_msg['password']; ?></p>
+            <input type="password" name="password" placeholder="&#xf023 Password">
+        </div>
+        <div>
+            <input type="submit" name="submit" class="btn" value="Register">
+        </div>
+    </form>
+</div>
 
 </body>
 </html>

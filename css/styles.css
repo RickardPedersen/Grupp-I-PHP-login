@@ -84,4 +84,9 @@ body {
 .registerContainer .btn:hover {
   cursor: pointer;
 }
+
+.registerContainer .error {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #e75353;
+}
 /*# sourceMappingURL=styles.css.map */
