@@ -17,15 +17,15 @@ class LoggedInClass
 {
     private $session;
 
-    public function __construct($session = "")
+    public function __construct($session = null)
     {
-        session_start();
-        if (!(isset($session)) || $session == "") {
+        if (!(isset($session))) {
             $session = $_SESSION['user'];
             $_SESSION['user'] =
             "Something went wrong with setting the session";
             $this->session = $session;
         } else {
+            $_SESSION['user'] = $session;
             $this->session = $session;
         }
     }

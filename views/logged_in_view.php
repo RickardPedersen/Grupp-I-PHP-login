@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include '../classes/logged_in_view_class.php';
+include  __DIR__ . '/../classes/logged_in_view_class.php';
 $loggedIn = new classes\LoggedInClass("Alex");
 ?>
 <!DOCTYPE html>
