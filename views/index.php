@@ -1,11 +1,11 @@
 <?php
-require __DIR__ . '/vendor/autoload.php';
-include 'classes/db_class.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+require __DIR__ . '/../vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '\\..\\');
 $dotenv->load();
 
-$db = new Database(
+$db = new classes\MySQL(
     getenv('DB_HOST'),
     getenv('DB_USERNAME'),
     getenv('DB_PASSWORD'),
