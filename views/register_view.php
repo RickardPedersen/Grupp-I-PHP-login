@@ -16,13 +16,22 @@ if (isset($_POST['submit'])) {
     if (empty($_POST['email'])) {
         $error_msg['email'] = 'Please enter an email';
     } else {
+        if (strlen($_POST['email']) > 65) {
+            $error_msg['email'] = 'Email cannot be longer than 65 characters';
+        } else {
+            $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
+        }
         $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
     }
 
     if (empty($_POST['username'])) {
         $error_msg['username'] = 'Please enter a username';
     } else {
-        $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+        if (strlen($_POST['username']) > 20) {
+            $error_msg['username'] = 'Username cannot be longer than 20 characters';
+        } else {
+            $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+        }
     }
 
     if (empty($_POST['password'])) {
