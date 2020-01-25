@@ -12,17 +12,17 @@ class MySQL
     private $charset;
 
     public function __construct(
-        $hostname,
-        $username,
-        $password,
-        $dbname,
-        $port
+        $hostname = null,
+        $username = null,
+        $password = null,
+        $dbname = null,
+        $port = null
     ) {
-        $this->hostname = $hostname;
-        $this->username = $username;
-        $this->password = $password;
-        $this->dbname = $dbname;
-        $this->port = $port;
+        $this->hostname = $hostname ?? getenv('DB_HOST');
+        $this->username = $username ?? getenv('DB_USERNAME');
+        $this->password = $password ?? getenv('DB_PASSWORD');
+        $this->dbname = $dbname ?? getenv('DB_NAME');
+        $this->port = $port ?? getenv('DB_PORT');
         $this->charset = 'utf8mb4';
     }
 
