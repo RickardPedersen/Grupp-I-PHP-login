@@ -1,6 +1,4 @@
-<?php
-
-namespace classes;
+<?php namespace classes;
 
 class MySQL
 {
