@@ -17,6 +17,7 @@ $user = new classes\Register('TestUser', '123', 'test@mail.com');
 $valArr = $user->validate();
 
 // check if all is valid
+
 if ($valArr['allValid']) {
     // inputs OK
 
@@ -31,3 +32,4 @@ if ($valArr['allValid']) {
 } else {
     echo 'Illegal inputs';
 }
+

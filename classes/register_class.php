@@ -5,6 +5,7 @@ class Register
     private $username;
     private $hashedPassword;
     private $email;
+    private $validated;
 
     public function __construct($username, $password, $email)
     {
@@ -17,6 +18,8 @@ class Register
         } else {
             $this->hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         }
+
+        $this->validated = false;
     }
 
     public function validate()
@@ -62,6 +65,7 @@ class Register
         foreach ($validatedInputs as $key => $value) {
             if ($key == 'allValid') {
                 $validatedInputs['allValid'] = true;
+                $this->validated = true;
             } elseif (!$value) {
                 break;
             }
@@ -91,6 +95,10 @@ class Register
 
     public function addUser($pdo)
     {
+        if (!$this->validated) {
+            return false;
+        }
+
         $accepted = $this->checkDuplicate($pdo);
 
         if (!$accepted) {
