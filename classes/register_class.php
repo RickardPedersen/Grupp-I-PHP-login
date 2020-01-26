@@ -21,31 +21,53 @@ class Register
 
     public function validate()
     {
+        $validatedInputs = array(
+            'emailExists' => false,
+            'emailValid' => false,
+            'emailLength' => false,
+            'usernameExists' => false,
+            'usernameLength' => false,
+            'passwordExists' => false,
+            'allValid' => false
+        );
+
         // validate email
-        if (isset($this->email) == false ||
-            filter_var($this->email, FILTER_VALIDATE_EMAIL) == false ||
-            strlen($this->email) > 65
-        ) {
-            return false;
+        if (!empty($this->email)) {
+            $validatedInputs['emailExists'] = true;
+        }
+
+        if (filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+            $validatedInputs['emailValid'] = true;
+        }
+
+        if (strlen($this->email) <= 65) {
+            $validatedInputs['emailLength'] = true;
         }
 
         // validate username
-        if (isset($this->username) == false ||
-            strlen($this->username) > 20 ||
-            empty($this->username)
-        ) {
-            return false;
+        if (!empty($this->username)) {
+            $validatedInputs['usernameExists'] = true;
+        }
+
+        if (strlen($this->username) <= 20) {
+            $validatedInputs['usernameLength'] = true;
         }
 
         // validate password
-        if (isset($this->hashedPassword) == false ||
-            is_null($this->hashedPassword)
-        ) {
-            return false;
+        if (!empty($this->hashedPassword)) {
+            $validatedInputs['passwordExists'] = true;
         }
 
-        // all is validated
-        return true;
+        // check if all is valid
+        foreach ($validatedInputs as $key => $value) {
+            if ($key == 'allValid') {
+                $validatedInputs['allValid'] = true;
+            } elseif (!$value) {
+                break;
+            }
+        }
+
+        return $validatedInputs;
     }
 
     private function checkDuplicate($pdo)

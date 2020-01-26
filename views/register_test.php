@@ -13,8 +13,10 @@ $pdo = $db->connect();
 */
 $user = new classes\Register('TestUser', '123', 'test@mail.com');
 
+$valArr = $user->validate();
+
 // Filtrerar/validerar inputs
-if ($user->validate()) {
+if ($valArr['allValid']) {
     // inputs OK
 
     // Försöker lägga till användare i databasen
