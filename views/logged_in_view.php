@@ -2,7 +2,7 @@
 
 session_start();
 include  __DIR__ . '/../classes/logged_in_view_class.php';
-$loggedIn = new classes\LoggedInClass();
+$loggedIn = new classes\LoggedInClass("Alex", "Test");
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
