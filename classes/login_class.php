@@ -38,6 +38,12 @@ class Login
             // check if password is correct
             if (password_verify($this->password, $result['UserPassword'])) {
                 // correct password
+
+                // start session
+                session_start();
+                $_SESSION['username'] = $result['UserName'];
+                $_SESSION['email'] = $result['UserEmail'];
+
                 $inputChecks['passwordMatch'] = true;
                 return $inputChecks;
             } else {

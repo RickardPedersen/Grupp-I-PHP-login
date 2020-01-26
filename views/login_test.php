@@ -7,5 +7,18 @@ $dotenv->load();
 $db = new classes\MySQL();
 $pdo = $db->connect();
 
-$user = new classes\Login('TestUser', '12');
-var_dump($user->login($pdo));
+$user = new classes\Login('TestUser', '123');
+
+$matches = $user->login($pdo);
+
+if ($matches['usernameOrEmailMatch']) {
+    if ($matches['passwordMatch']) {
+        echo 'User logged in!' . PHP_EOL;
+        echo 'Username: ' . $_SESSION['username'] . PHP_EOL;
+        echo 'Email: ' . $_SESSION['email'];
+    } else {
+        echo 'Wrong password';
+    }
+} else {
+    echo 'Wrong username or email';
+}
