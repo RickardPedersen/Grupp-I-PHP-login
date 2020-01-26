@@ -13,9 +13,10 @@ $pdo = $db->connect();
 */
 $user = new classes\Register('TestUser', '123', 'test@mail.com');
 
+// Filtrerar/validerar inputs
 $valArr = $user->validate();
 
-// Filtrerar/validerar inputs
+// check if all is valid
 if ($valArr['allValid']) {
     // inputs OK
 
