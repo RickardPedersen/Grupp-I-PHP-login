@@ -8,21 +8,25 @@ class LoggedInClass
 
     public function __construct($username = null, $email = null)
     {
-        if (!(isset($username)) || !(isset($email))) {
+        if (!(isset($username)) && !(isset($email))) {
             $_SESSION['user'] =
-            array("error" => "Something went wrong with setting the session");
+            array("usernameError" => "Failed setting username", "emailError" => "Failed setting email");
+            $this->session = $_SESSION['user'];
+        } elseif (!(isset($username))) {
+            $_SESSION['user'] =
+            array("usernameError" => "Failed setting username", "email" => "Email: $email");
+            $this->session = $_SESSION['user'];
+        } elseif (!(isset($email))) {
+            $_SESSION['user'] =
+            array("username" => "Username: $username", "emailError" => "Failed setting email");
             $this->session = $_SESSION['user'];
         } else {
-            $_SESSION['user'] = array("username" => $username, "email" => $email);
+            $_SESSION['user'] = array("username" => "Username: $username", "email" => "Email: $email");
             $this->session = $_SESSION['user'];
         }
     }
     public function sendSessionData()
     {
-        if (array_key_exists("error", $this->session)) {
-            return $this->session["error"];
-        } else {
-            return implode(", ", $this->session);
-        }
+        return "<h2>" . implode("</h2><h2>", $this->session) . "</h2>";
     }
 }
