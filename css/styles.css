@@ -17,7 +17,7 @@ body {
   margin-top: 100px;
   background-color: white;
   width: 400px;
-  height: 500px;
+  height: auto;
   border-radius: 8px;
   text-align: center;
   -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
@@ -73,7 +73,7 @@ body {
 }
 
 .registerContainer .btn {
-  margin-top: 40px;
+  margin: 40px 0px;
   background-color: #06c258;
   color: white;
   border-radius: 4px;

@@ -25,40 +25,40 @@ class Register
     public function validate()
     {
         $validatedInputs = array(
-            'emailExists' => false,
-            'emailValid' => false,
-            'emailLength' => false,
-            'usernameExists' => false,
-            'usernameLength' => false,
-            'passwordExists' => false,
+            'emailExists' => 'Please enter an email',
+            'emailValid' => 'Please enter a valid email',
+            'emailLength' => 'Email cannot be longer than 65 characters',
+            'usernameExists' => 'Please enter a username',
+            'usernameLength' => 'Username cannot be longer than 25 characters',
+            'passwordExists' => 'Please enter a password',
             'allValid' => false
         );
 
         // validate email
         if (!empty($this->email)) {
-            $validatedInputs['emailExists'] = true;
+            $validatedInputs['emailExists'] = '';
         }
 
         if (filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
-            $validatedInputs['emailValid'] = true;
+            $validatedInputs['emailValid'] = '';
         }
 
         if (strlen($this->email) <= 65) {
-            $validatedInputs['emailLength'] = true;
+            $validatedInputs['emailLength'] = '';
         }
 
         // validate username
         if (!empty($this->username)) {
-            $validatedInputs['usernameExists'] = true;
+            $validatedInputs['usernameExists'] = '';
         }
 
         if (strlen($this->username) <= 20) {
-            $validatedInputs['usernameLength'] = true;
+            $validatedInputs['usernameLength'] = '';
         }
 
         // validate password
         if (!empty($this->hashedPassword)) {
-            $validatedInputs['passwordExists'] = true;
+            $validatedInputs['passwordExists'] = '';
         }
 
         // check if all is valid
@@ -95,9 +95,9 @@ class Register
 
     public function addUser($pdo)
     {
-        if (!$this->validated) {
-            return false;
-        }
+        // if (!$this->validated) {
+        //     return false;
+        // }
 
         $accepted = $this->checkDuplicate($pdo);
 

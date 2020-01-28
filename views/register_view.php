@@ -1,51 +1,45 @@
 <?php include 'head.php' ?>
 
 <?php
-// function debug_to_console($data) 
-// {
-//     $output = $data;
-//     if (is_array($output))
-//         $output = implode(',', $output);
+function debug_to_console($data) 
+{
+    $output = $data;
+    if (is_array($output))
+        $output = implode(',', $output);
 
-//     echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
-// }
+    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+}
 
-$error_msg = array('email'=>'', 'username'=>'', 'password'=>'');
+$error_msg = [];
+$username = '';
+$email = '';
 
 if (isset($_POST['submit'])) {
-    if (empty($_POST['email'])) {
-        $error_msg['email'] = 'Please enter an email';
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    require __DIR__ . '/../vendor/autoload.php';
+
+    $user = new classes\Register($username, $password, $email);
+
+    $validate = $user->validate();
+
+    if (array_filter($validate)) {
+        $error_msg = $validate;
     } else {
-        if (strlen($_POST['email']) > 65) {
-            $error_msg['email'] = 'Email cannot be longer than 65 characters';
+        $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR);
+        $dotenv->load(); 
+        $db = new classes\MySQL(); 
+        $pdo = $db->connect();
+
+        $newUser = $user->addUser($pdo);
+
+        if (!$newUser) {
+            $error_msg['duplicated'] = 'Username or email already exists';
         } else {
-            $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
+            header('Location: ' . 'login_view.php');
         }
-        $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
-    }
-
-    if (empty($_POST['username'])) {
-        $error_msg['username'] = 'Please enter a username';
-    } else {
-        if (strlen($_POST['username']) > 20) {
-            $error_msg['username'] = 'Username cannot be longer than 20 characters';
-        } else {
-            $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
-        }
-    }
-
-    if (empty($_POST['password'])) {
-        $error_msg['password'] = 'Please enter a password';
-    } else {
-        $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    }
-
-
-    if (array_filter($error_msg)) {
-        // error messages are displayed
-    } else {
-        // submit to db + get redirected to login
     }
 };
 ?>
@@ -54,15 +48,15 @@ if (isset($_POST['submit'])) {
     <h1>Register</h1>
     <form action="register_view.php" method="POST">
         <div>
-            <p class="error"><?php echo $error_msg['email']; ?></p>
-            <input type="email" name="email" placeholder="Email">
+            <?php foreach ($error_msg as $error) {?>
+                <p class="error"><?php echo $error; ?></p>
+            <?php } ?>
+            <input type="email" name="email" placeholder="Email" value=<?php echo htmlspecialchars($email)?>>
         </div>
         <div>
-            <p class="error"><?php echo $error_msg['username']; ?></p>
-            <input type="text" name="username" placeholder="&#xf007 Username">
+            <input type="text" name="username" placeholder="&#xf007 Username" value=<?php echo htmlspecialchars($username) ?>>
         </div>
         <div>
-            <p class="error"><?php echo $error_msg['password']; ?></p>
             <input type="password" name="password" placeholder="&#xf023 Password">
         </div>
         <div>
