@@ -89,4 +89,12 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #e75353;
 }
+
+.center-content {
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 15%;
+}
 /*# sourceMappingURL=styles.css.map */
