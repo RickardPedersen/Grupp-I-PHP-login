@@ -64,9 +64,8 @@ class Register
         // check if all is valid
         foreach ($validatedInputs as $key => $value) {
             if ($key == 'allValid') {
-                $validatedInputs['allValid'] = true;
                 $this->validated = true;
-            } elseif (!$value) {
+            } elseif (strlen($value) > 0) {
                 break;
             }
         }
@@ -95,9 +94,9 @@ class Register
 
     public function addUser($pdo)
     {
-        // if (!$this->validated) {
-        //     return false;
-        // }
+        if (!$this->validated) {
+            return false;
+        }
 
         $accepted = $this->checkDuplicate($pdo);
 
