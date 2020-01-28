@@ -23,9 +23,7 @@ $loggedIn = new classes\LoggedInClass("Alex", "@testing");
                     echo $loggedIn->sendSessionData();
                 ?>
             </h1>
-            <form action="login_view.php" method="post">
-                <button class="btn btn-lg btn-success" type="submit" name="button">Logout</button>
-            </form>
+            <a href="login_view.php" class="btn btn-lg btn-success">Logout</a>
         </div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
