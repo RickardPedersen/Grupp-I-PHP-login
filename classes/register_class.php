@@ -64,6 +64,7 @@ class Register
         // check if all is valid
         foreach ($validatedInputs as $key => $value) {
             if ($key == 'allValid') {
+                $validatedInputs['allValid'] = true;
                 $this->validated = true;
             } elseif (strlen($value) > 0) {
                 break;

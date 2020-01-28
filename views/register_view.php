@@ -1,15 +1,6 @@
 <?php include 'head.php' ?>
 
 <?php
-function debug_to_console($data) 
-{
-    $output = $data;
-    if (is_array($output))
-        $output = implode(',', $output);
-
-    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
-}
-
 $error_msg = [];
 $username = '';
 $email = '';
@@ -25,9 +16,7 @@ if (isset($_POST['submit'])) {
 
     $validate = $user->validate();
 
-    if (array_filter($validate)) {
-        $error_msg = $validate;
-    } else {
+    if ($validate['allValid']) {
         $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR);
         $dotenv->load(); 
         $db = new classes\MySQL(); 
@@ -39,6 +28,14 @@ if (isset($_POST['submit'])) {
             $error_msg['duplicated'] = 'Username or email already exists';
         } else {
             header('Location: ' . 'login_view.php');
+        }
+    } else {
+        foreach ($validate as $key => $value) {
+            if ($key == 'allValid') {
+                break;
+            } else {
+                $error_msg[$key] = $value;
+            }
         }
     }
 };
