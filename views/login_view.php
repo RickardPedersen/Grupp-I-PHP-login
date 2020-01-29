@@ -1,12 +1,16 @@
+<!-- Just for demonstration purposes.-->
 <?php
-session_start();
-$_SESSION = array()
-?>
+include  __DIR__ . '/../classes/logged_in_view_class.php';
+
+$loggedInClass = new classes\LoggedInClass();
+
+$loggedInClass->logout($_SESSION);
+ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>Login view</title>
     </head>
     <body>
         <h1>LOGOUT PAGE</h1>

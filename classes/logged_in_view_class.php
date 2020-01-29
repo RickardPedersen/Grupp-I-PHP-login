@@ -25,4 +25,10 @@ class LoggedInClass
             return implode(", ", $this->session);
         }
     }
+    public function logout()
+    {
+        session_start();
+        $_SESSION = array();
+        return $_SESSION;
+    }
 }
