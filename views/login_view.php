@@ -1,7 +1,7 @@
 <?php include 'head.php'; ?>
 
 <?php
-function debug_to_console($data) 
+function debug_to_console($data)
 {
     $output = $data;
     if (is_array($output))
@@ -19,16 +19,15 @@ if (isset($_POST['submit'])) {
 
     require __DIR__ . '/../vendor/autoload.php';
     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR);
-    $dotenv->load(); 
-    $db = new classes\MySQL(); 
+    $dotenv->load();
+    $db = new classes\MySQL();
     $pdo = $db->connect();
 
     $user = new classes\Login($usernameOrEmail, $password);
     $userExists = $user->login($pdo);
 
     if ($userExists['usernameOrEmailMatch'] && $userExists['passwordMatch']) {
-        $newSession = new classes\LoggedInClass($usernameOrEmail);
-        // debug_to_console($newSession->sendSessionData());
+        $newSession = new classes\LoggedInClass();
         header('Location: ' . 'logged_in_view.php');
     } else {
         $error_msg = 'Incorrect username or password';

@@ -2,6 +2,7 @@
 
 session_start();
 include  __DIR__ . '/../classes/logged_in_view_class.php';
+$loggedInUser = new classes\LoggedInClass();
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -17,8 +18,21 @@ include  __DIR__ . '/../classes/logged_in_view_class.php';
     <body>
         <div class="container center-content">
             <h1>You are now logged in!</h1>
-            <h1>Welcome <span><?php echo $_SESSION['username']; ?></span></h1>
-            <h1>email: <?php echo $_SESSION['email'] ?></h2>
+            <?php
+            $sessionData = $loggedInUser->sendSessionData();
+
+            foreach ($sessionData as $key => $value) {
+                if ($key == "username") {
+                    echo "<h1>Welcome: $value</h1>";
+                }
+                if ($key == "email") {
+                    echo "<h2>Email: $value</h2>";
+                }
+                if ($key == "error") {
+                    echo "<h2>Error: $value</h2>";
+                }
+            }
+            ?>
             <button class="btn btn-lg btn-success" type="submit" name="button">Logout</button>
         </div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
