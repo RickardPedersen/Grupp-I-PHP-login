@@ -17,55 +17,68 @@ body {
     border-radius: 8px;
     text-align: center;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
 
-    h1 {
-        margin-top: 60px;
-        color: rgb(58, 58, 58);
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-weight: lighter;
+.loginContainer {
+    margin-top: 100px;
+    background-color: white;
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+h1 {
+    margin-top: 60px;
+    color: rgb(58, 58, 58);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+
+    span {
+        font-weight: bold;
     }
+}
 
-    form {
-        display: flex;
-        flex-direction: column;
-        margin-top: 40px;
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+input {
+    height: 40px;
+    width: 80%;
+    margin: 13px 10%;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 4px;
+    box-shadow: none;
+    outline: none;
+    border: 1px solid #b8b8b8;
+    font-family: 'Muli', FontAwesome, sans-serif
+}
+
+::placeholder {
+    color: rgb(167, 167, 167);
+}
+
+.btn {
+    margin: 40px 0px;
+    background-color: #06c258;
+    color: white;
+    border-radius: 4px;
+    border-style: none;
+    height: 50px;
+
+    &:hover{
+        cursor: pointer;
     }
-    
-    input {
-        height: 40px;
-        width: 80%;
-        margin: 13px 10%;
-        text-align: center;
-        font-size: 18px;
-        border-radius: 4px;
-        box-shadow: none;
-        outline: none;
-        border: 1px solid #b8b8b8;
-        font-family: 'Muli', FontAwesome, sans-serif
-    }
+}
 
-    ::placeholder {
-        color: rgb(167, 167, 167);
-    }
-
-    .btn {
-        margin: 40px 0px;
-        background-color: #06c258;
-        color: white;
-        border-radius: 4px;
-        border-style: none;
-        height: 50px;
-
-        &:hover{
-            cursor: pointer;
-        }
-    }
-
-    .error {
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        color: rgb(231, 83, 83);
-    }
-
+.error {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(231, 83, 83);
 }
 
 .center-content {

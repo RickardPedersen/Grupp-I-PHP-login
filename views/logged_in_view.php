@@ -2,7 +2,6 @@
 
 session_start();
 include  __DIR__ . '/../classes/logged_in_view_class.php';
-$loggedIn = new classes\LoggedInClass("Alex", "@testing");
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -18,11 +17,8 @@ $loggedIn = new classes\LoggedInClass("Alex", "@testing");
     <body>
         <div class="container center-content">
             <h1>You are now logged in!</h1>
-            <h1>Session variable:
-                <?php
-                    echo $loggedIn->sendSessionData();
-                ?>
-            </h1>
+            <h1>Welcome <span><?php echo $_SESSION['username']; ?></span></h1>
+            <h1>email: <?php echo $_SESSION['email'] ?></h2>
             <button class="btn btn-lg btn-success" type="submit" name="button">Logout</button>
         </div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

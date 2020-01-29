@@ -24,14 +24,29 @@ body {
           box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-.registerContainer h1 {
+.loginContainer {
+  margin-top: 100px;
+  background-color: white;
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+  text-align: center;
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+h1 {
   margin-top: 60px;
   color: #3a3a3a;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: lighter;
 }
 
-.registerContainer form {
+h1 span {
+  font-weight: bold;
+}
+
+form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -42,7 +57,7 @@ body {
   margin-top: 40px;
 }
 
-.registerContainer input {
+input {
   height: 40px;
   width: 80%;
   margin: 13px 10%;
@@ -56,23 +71,23 @@ body {
   font-family: 'Muli', FontAwesome, sans-serif;
 }
 
-.registerContainer ::-webkit-input-placeholder {
+::-webkit-input-placeholder {
   color: #a7a7a7;
 }
 
-.registerContainer :-ms-input-placeholder {
+:-ms-input-placeholder {
   color: #a7a7a7;
 }
 
-.registerContainer ::-ms-input-placeholder {
+::-ms-input-placeholder {
   color: #a7a7a7;
 }
 
-.registerContainer ::placeholder {
+::placeholder {
   color: #a7a7a7;
 }
 
-.registerContainer .btn {
+.btn {
   margin: 40px 0px;
   background-color: #06c258;
   color: white;
@@ -81,11 +96,11 @@ body {
   height: 50px;
 }
 
-.registerContainer .btn:hover {
+.btn:hover {
   cursor: pointer;
 }
 
-.registerContainer .error {
+.error {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #e75353;
 }
