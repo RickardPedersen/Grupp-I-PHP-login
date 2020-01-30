@@ -2,6 +2,10 @@
 
 namespace classes;
 
+/**
+ * MySQL class has 5 optional parameters (hostname, username, password, dbname, port)
+ * If no parameters are set the values are retrieved from the .env file
+ */
 class MySQL
 {
     private $hostname;
@@ -26,6 +30,9 @@ class MySQL
         $this->charset = 'utf8mb4';
     }
 
+    /**
+     * Returns a PDO
+     */
     public function connect()
     {
         $options = [
