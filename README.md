@@ -1,6 +1,11 @@
 # Grupp-I-PHP-login
 Gruppuppgift i kursen Webbutveckling med PHP
 
+# Setup
+Run:
+1. composer install
+2. composer dump-autoload -o
+
 Trello:
     https://trello.com/b/FmMsGwJG/grupp-i-php-loginrickard-elin-alex
 
