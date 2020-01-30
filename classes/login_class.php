@@ -1,4 +1,6 @@
-<?php namespace classes;
+<?php
+
+namespace classes;
 
 class Login
 {
