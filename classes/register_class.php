@@ -49,29 +49,32 @@ class Register
             'allValid' => false
         );
 
-        // validate email
+        // check if there is an email input
         if (!empty($this->email)) {
             $validatedInputs['emailExists'] = '';
         }
 
+        // check if email input is a vaild email adress
         if (filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
             $validatedInputs['emailValid'] = '';
         }
 
+        // check if email input is 65 characters or less
         if (strlen($this->email) <= 65) {
             $validatedInputs['emailLength'] = '';
         }
 
-        // validate username
+        // check if the is a username input
         if (!empty($this->username)) {
             $validatedInputs['usernameExists'] = '';
         }
 
+        // check if username input is 20 characters or less
         if (strlen($this->username) <= 20) {
             $validatedInputs['usernameLength'] = '';
         }
 
-        // validate password
+        // check if there is a password input
         if (!empty($this->hashedPassword)) {
             $validatedInputs['passwordExists'] = '';
         }

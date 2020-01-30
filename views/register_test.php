@@ -32,4 +32,3 @@ if ($valArr['allValid']) {
 } else {
     echo 'Illegal inputs';
 }
-

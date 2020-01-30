@@ -1,4 +1,6 @@
-<?php namespace tests;
+<?php
+
+namespace tests;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -92,6 +94,7 @@ class RegisterUnitTesting extends TestCase
         $pdo = $db->connect();
 
         $sql = 'DELETE FROM users WHERE UserName = "mJIu7k39OVmzfiMOBnsW"';
-        $pdo->exec($sql);
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
     }
 }
