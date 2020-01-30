@@ -27,11 +27,7 @@ class LoggedInClass
     }
     public function sendSessionData()
     {
-        if (array_key_exists("error", $this->session)) {
-            return $this->session;
-        } else {
-            return $this->session;
-        }
+        return $this->session;  
     }
     public function logout()
     {
