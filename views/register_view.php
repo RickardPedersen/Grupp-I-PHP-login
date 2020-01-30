@@ -1,7 +1,6 @@
-<?php include 'head.php' ?>
-
 <?php
 session_start();
+include 'head.php';
 if (isset($_SESSION['username'])) {
     header('Location: ' . 'logged_in_view.php');
 }
@@ -56,7 +55,7 @@ if (isset($_POST['submit'])) {
             <input type="email" name="email" placeholder="Email" value=<?php echo htmlspecialchars($email)?>>
         </div>
         <div>
-            <input type="text" name="username" placeholder="&#xf007 Username" 
+            <input type="text" name="username" placeholder="&#xf007 Username"
             value=<?php echo htmlspecialchars($username) ?>>
         </div>
         <div>
