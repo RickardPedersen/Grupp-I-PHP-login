@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'head.php';
+include 'head.html';
 if (isset($_SESSION['username'])) {
     header('Location: ' . 'logged_in_view.php');
 }
