@@ -29,7 +29,7 @@ $loggedInUser = new classes\LoggedInClass();
                     echo "<h2>Email: $value</h2>";
                 }
                 if ($key == "error") {
-                    echo "<h2>Error: $value</h2>";
+                    header('Location: ' . 'login_view.php');
                 }
             }
             ?>
