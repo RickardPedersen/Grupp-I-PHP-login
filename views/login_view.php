@@ -1,15 +1,6 @@
 <?php include 'head.php'; ?>
 
 <?php
-function debug_to_console($data)
-{
-    $output = $data;
-    if (is_array($output))
-        $output = implode(',', $output);
-
-    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
-}
-
 $error_msg = '';
 $usernameOrEmail = '';
 
@@ -27,7 +18,6 @@ if (isset($_POST['submit'])) {
     $userExists = $user->login($pdo);
 
     if ($userExists['usernameOrEmailMatch'] && $userExists['passwordMatch']) {
-        $newSession = new classes\LoggedInClass();
         header('Location: ' . 'logged_in_view.php');
     } else {
         $error_msg = 'Incorrect username or password';
