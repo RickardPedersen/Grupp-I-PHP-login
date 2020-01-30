@@ -5,9 +5,10 @@ Trello:
     https://trello.com/b/FmMsGwJG/grupp-i-php-loginrickard-elin-alex
 
 # Setup
-Run:
-1. composer install
-2. composer dump-autoload -o
+1. Open terminal
+2. Run: composer install
+3. Run: composer dump-autoload -o
+4. Ready to go!
 
 # Krav
 Ni ska skriva en webbapplikation som låter en användare registrera sig och logga in.
