@@ -10,6 +10,9 @@ Trello:
 3. Run: composer dump-autoload -o
 4. Ready to go!
 
+# Unit test
+Run: ./vendor/bin/phpunit
+
 # Krav
 Ni ska skriva en webbapplikation som låter en användare registrera sig och logga in.
 
