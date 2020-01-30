@@ -1,13 +1,13 @@
 # Grupp-I-PHP-login
 Gruppuppgift i kursen Webbutveckling med PHP
 
+Trello:
+    https://trello.com/b/FmMsGwJG/grupp-i-php-loginrickard-elin-alex
+
 # Setup
 Run:
 1. composer install
 2. composer dump-autoload -o
-
-Trello:
-    https://trello.com/b/FmMsGwJG/grupp-i-php-loginrickard-elin-alex
 
 # Krav
 Ni ska skriva en webbapplikation som låter en användare registrera sig och logga in.
