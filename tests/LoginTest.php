@@ -16,6 +16,8 @@ class LoginUnitTesting extends TestCase
     }
     public function testUsernameIsString()
     {
+        //Checks if the FILTER_SANITIZE_STRING converts
+        //non-string values To string.
         $username = 123;
         $filteredNumber = filter_var($username, FILTER_SANITIZE_STRING);
         $this->assertIsString($filteredNumber);
