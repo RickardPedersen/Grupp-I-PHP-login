@@ -11,6 +11,7 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   background-color: #e0e0e0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .registerContainer {
@@ -38,7 +39,6 @@ body {
 h1 {
   margin-top: 60px;
   color: #3a3a3a;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: lighter;
 }
 
@@ -88,7 +88,7 @@ input {
 }
 
 .btn {
-  margin: 40px 0px;
+  margin: 30px 0px;
   background-color: #06c258;
   color: white;
   border-radius: 4px;
@@ -101,7 +101,6 @@ input {
 }
 
 .error {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #e75353;
 }
 
@@ -111,5 +110,16 @@ input {
       -ms-flex-align: center;
           align-items: center;
   margin-top: 15%;
+}
+
+.redirect {
+  margin-bottom: 12px;
+  color: gray;
+}
+
+.redirect a {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-decoration: none;
+  color: #3b78b6;
 }
 /*# sourceMappingURL=styles.css.map */

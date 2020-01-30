@@ -13,7 +13,7 @@ class LoggedInClass
     {
         if (!(isset($_SESSION['username'])) || !(isset($_SESSION['email']))) {
             $_SESSION =
-            array("error" => $errorMsg);
+            array("error" => $this->errorMsg);
             $this->session = $_SESSION;
         } elseif ((isset($_SESSION['username'])) && (isset($_SESSION['email']))) {
             $_SESSION =
@@ -21,14 +21,14 @@ class LoggedInClass
             $this->session = $_SESSION;
         } else {
             $_SESSION =
-            array("error" => $errorMsg);
+            array("error" => $this->errorMsg);
             $this->session = $_SESSION;
         }
     }
     public function sendSessionData()
     {
         if (array_key_exists("error", $this->session)) {
-            return $this->session["error"];
+            return $this->session;
         } else {
             return $this->session;
         }
@@ -37,6 +37,6 @@ class LoggedInClass
     {
         session_start();
         $_SESSION = array();
-        return $_SESSION;
+        session_destroy();
     }
 }

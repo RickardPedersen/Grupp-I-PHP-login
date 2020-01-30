@@ -1,6 +1,11 @@
 <?php include 'head.php' ?>
 
 <?php
+session_start();
+if (isset($_SESSION['username'])) {
+    header('Location: ' . 'logged_in_view.php');
+}
+
 $error_msg = [];
 $username = '';
 $email = '';
@@ -60,6 +65,7 @@ if (isset($_POST['submit'])) {
             <input type="submit" name="submit" class="btn" value="Register">
         </div>
     </form>
+    <p class="redirect">Already a member? <a href="login_view.php">Login</a></p>
 </div>
 
 </body>

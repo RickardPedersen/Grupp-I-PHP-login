@@ -40,7 +40,6 @@ class Login
                 // correct password
 
                 // start session
-                session_start();
                 $_SESSION['username'] = $result['UserName'];
                 $_SESSION['email'] = $result['UserEmail'];
 

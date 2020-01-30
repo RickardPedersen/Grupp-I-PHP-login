@@ -17,13 +17,12 @@ $loggedInUser = new classes\LoggedInClass();
     </head>
     <body>
         <div class="container center-content">
-            <h1>You are now logged in!</h1>
-<<<<<<< HEAD
             <?php
             $sessionData = $loggedInUser->sendSessionData();
 
             foreach ($sessionData as $key => $value) {
                 if ($key == "username") {
+                    echo "<h1>You are now logged in!</h1>";
                     echo "<h1>Welcome: $value</h1>";
                 }
                 if ($key == "email") {
@@ -34,15 +33,7 @@ $loggedInUser = new classes\LoggedInClass();
                 }
             }
             ?>
-            <button class="btn btn-lg btn-success" type="submit" name="button">Logout</button>
-=======
-            <h1>Session variable:
-                <?php
-                    echo $loggedIn->sendSessionData();
-                ?>
-            </h1>
-            <a href="login_view.php" class="btn btn-lg btn-success">Logout</a>
->>>>>>> master
+            <a href="logout.php" class="btn btn-lg btn-success">Logout</a>
         </div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

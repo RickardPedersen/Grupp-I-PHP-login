@@ -7,6 +7,7 @@ body {
     display: flex;
     justify-content: center;
     background-color: rgb(224, 224, 224);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .registerContainer {
@@ -32,7 +33,6 @@ body {
 h1 {
     margin-top: 60px;
     color: rgb(58, 58, 58);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: lighter;
 
     span {
@@ -64,7 +64,7 @@ input {
 }
 
 .btn {
-    margin: 40px 0px;
+    margin: 30px 0px;
     background-color: #06c258;
     color: white;
     border-radius: 4px;
@@ -77,7 +77,6 @@ input {
 }
 
 .error {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: rgb(231, 83, 83);
 }
 
@@ -85,4 +84,14 @@ input {
     text-align: center;
     align-items: center;
     margin-top: 15%;
+}
+
+.redirect {
+    margin-bottom: 12px;
+    color: gray;
+    a {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-decoration: none;
+        color: rgb(59, 120, 182);
+    }
 }
