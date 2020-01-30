@@ -2,6 +2,9 @@
 
 namespace classes;
 
+/**
+ * Login class requires 2 parameters (username/email, password)
+ */
 class Login
 {
     private $usernameOrEmail;
@@ -13,6 +16,13 @@ class Login
         $this->password = filter_var($password, FILTER_SANITIZE_STRING);
     }
 
+    /**
+     * Tries to login the user
+     * Returns an array
+     * 'usernameOrEmailMatch' will be false if username or email was not found in the database
+     * 'passwordMatch' will be false if input password did not match database hashed password
+     * If both is true, user will be logged in
+     */
     public function login($pdo)
     {
         $inputChecks = array(
@@ -41,7 +51,6 @@ class Login
             if (password_verify($this->password, $result['UserPassword'])) {
                 // correct password
 
-                // start session
                 $_SESSION['username'] = $result['UserName'];
                 $_SESSION['email'] = $result['UserEmail'];
 

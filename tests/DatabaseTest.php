@@ -1,4 +1,6 @@
-<?php namespace tests;
+<?php
+
+namespace tests;
 
 require __DIR__ . '/../vendor/autoload.php';
 

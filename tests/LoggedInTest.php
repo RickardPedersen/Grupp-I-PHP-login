@@ -1,4 +1,7 @@
 <?php
+
+namespace tests;
+
 require __DIR__ . '/../vendor/autoload.php';
 
 use classes\LoggedInClass;
