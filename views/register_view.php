@@ -23,8 +23,8 @@ if (isset($_POST['submit'])) {
 
     if ($validate['allValid']) {
         $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR);
-        $dotenv->load(); 
-        $db = new classes\MySQL(); 
+        $dotenv->load();
+        $db = new classes\MySQL();
         $pdo = $db->connect();
 
         $newUser = $user->addUser($pdo);
@@ -56,7 +56,8 @@ if (isset($_POST['submit'])) {
             <input type="email" name="email" placeholder="Email" value=<?php echo htmlspecialchars($email)?>>
         </div>
         <div>
-            <input type="text" name="username" placeholder="&#xf007 Username" value=<?php echo htmlspecialchars($username) ?>>
+            <input type="text" name="username" placeholder="&#xf007 Username" 
+            value=<?php echo htmlspecialchars($username) ?>>
         </div>
         <div>
             <input type="password" name="password" placeholder="&#xf023 Password">
