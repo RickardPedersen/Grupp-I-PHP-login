@@ -6,13 +6,10 @@ use PHPUnit\Framework\TestCase;
 
 class LoginUnitTesting extends TestCase
 {
-    private $usernameOrEmail = "TestUser";
-    private $password = "123";
-
     public function testLoginIsObject()
     {
         //Assert that login __construct returns an object.
-        $this->assertIsObject(new classes\Login($this->usernameOrEmail, $this->password));
+        $this->assertIsObject(new classes\Login("TestUser", "123"));
     }
     public function testUsernameIsString()
     {
