@@ -4,6 +4,7 @@ namespace tests;
 
 require __DIR__ . '/../vendor/autoload.php';
 
+use classes\Login;
 use PHPUnit\Framework\TestCase;
 
 class LoginUnitTesting extends TestCase
@@ -11,7 +12,7 @@ class LoginUnitTesting extends TestCase
     public function testLoginIsObject()
     {
         //Assert that login __construct returns an object.
-        $this->assertIsObject(new classes\Login("TestUser", "123"));
+        $this->assertIsObject(new Login("TestUser", "123"));
     }
     public function testUsernameIsString()
     {
